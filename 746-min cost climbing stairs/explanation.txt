@@ -1,0 +1,8 @@
+So the idea is to solve using dynamic programming.
+
+basically create an array dp till n+1 values (n is the size of cost array) and dp[n] = 0. since
+the cost at the final stage is 0. this dp[] basically stores the cumulative min cost
+at every instance of i step. key thing to note is that we are going backwards while traversing the array
+
+the final cost would be the min(dp[0],dp[1]) since we have a choice of starting from 
+first step or second step
