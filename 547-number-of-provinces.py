@@ -6,6 +6,24 @@
 
 # Return the total number of provinces.
 
+def compareArrays(first,second): #return true if second array contains element as the first array too, 
+    smallArray = []
+    bigArray = []
+    if(len(first) <= len(second)):
+        smallArray = first
+        bigArray = second
+    else:
+        smallArray = second
+        bigArray = first
+    
+    flag = True #we are assuming that first array has some elements that are present in second as well
+    for i in range(len(smallArray)):
+        if(smallArray[i] not in bigArray):
+            flag = False
+            break
+    
+    return flag
+
 
 
 def bfs(startingNode,adjacencyMatrix):
@@ -36,29 +54,35 @@ class Solution(object):
         :type isConnected: List[List[int]]
         :rtype: int
         """
+
         numOfProvince = 1
-        citiesOfArbitrary = len(bfs(0,isConnected))
+        visited = bfs(0, isConnected)
 
-        for i in range(1, len(isConnected)):
-            citiesPrime = len(bfs(i, isConnected))
+        for i in range(1,len(isConnected)):
+            bfsCurNode = bfs(i,isConnected)
+            if not (compareArrays(visited, bfsCurNode)):
+                numOfProvince += 1
 
-            if(citiesPrime == 1):
-                numOfProvince+=1
-                continue
+            for i in bfsCurNode:
+                visited.append(i)
 
-            if(citiesOfArbitrary != citiesPrime):
-                numOfProvince+=1
-                temp = citiesOfArbitrary
-                citiesOfArbitrary = citiesPrime
-                citiesPrime = temp
-        
         return numOfProvince
 
+            
+        
 
-adjacencyList = [[1,1,0],[1,1,0],[0,0,1]]
 
-print(bfs(2,adjacencyList))
+
+        
+
+        
+
+
+adjacencyList = [[1,0,0],[0,1,0],[0,0,1]]
+
+# print(bfs(2,adjacencyList))
 
 sol = Solution()
 print(sol.findCircleNum(adjacencyList))
 
+# print(compareArrays([1,23], [1,2,1,2]))
