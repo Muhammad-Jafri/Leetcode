@@ -1,3 +1,3 @@
 # Leetcode journey
 
-https://docs.google.com/spreadsheets/d/1MsO0NfaydUAAWAOajqDTPmVyyyCjOG01dQjOcZzUUeY/edit#gid=0
+https://docs.google.com/spreadsheets/d/1MsO0NfaydUAAWAOajqDTPmVyyyCjOG01dQjOcZzUUeY/edit?usp=sharing
